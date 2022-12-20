@@ -1,0 +1,44 @@
+{
+  "Produtos": [
+    {
+      "id": 1,
+      "name": "Agua sanitária",
+      "quantidade": 10
+    },
+    {
+      "name": "teste",
+      "quantidade": "36",
+      "email": "100",
+      "id": 2
+    },
+    {
+      "name": "marcos",
+      "quantidade": "100",
+      "id": 3
+    },
+    {
+      "name": "teste",
+      "quantidade": "36",
+      "email": "100",
+      "id": 6
+    },
+    {
+      "name": "marcos",
+      "quantidade": "100",
+      "id": 7
+    },
+    {
+      "name": "testando",
+      "quantidade": "7",
+      "id": 8
+    }
+  ],
+  "Movimentos": [
+    {
+      "id": 1,
+      "produto": "Agua sanitária",
+      "quantidade": 10,
+      "tipo": "saida"
+    }
+  ]
+}
