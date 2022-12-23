@@ -12,7 +12,7 @@ export const AuthProvider = ({children}) => {
     const login = (email, password) =>{
 
         console.log("login Auth",{email, password})
-            if(password === '123'){
+            if(password =='teste'){
             stUser({id:"123",email})
             navigate("/")
         }}

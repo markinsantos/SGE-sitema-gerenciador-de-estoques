@@ -13,22 +13,13 @@ import { AuthProvider, AuthContext } from '../components/context/auth';
 const RoutesApp = () =>{
 
     const Private=({children})=>{
-        const{autenticated} = useContext(AuthContext);
-        if(!autenticated){
+        const{authenticated} = useContext(AuthContext);
+        if(!authenticated){
             return < Navigate to="/login"/>
         }
         return children
     }    
-   /* const [user, stUser] = useState(null);
-
-    const login = (email, password) =>{
-        console.log("login Auth",{email, password})
-        stUser({id:"123",email})
-    }
-    const logout =()=>{
-        console.log("logout")
-    }*/
-
+   
     return(
     <BrowserRouter>
          <Fragment>
