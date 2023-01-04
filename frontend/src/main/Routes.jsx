@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route,Navigate } from "react-router-dom";
 import Home from '../components/home/Home'
 import ProdutoCrud from '../components/produtos/ProdutoCrud'
 import MovimentoCrud from '../components/movimentos/movimentoCrud';
-import OpcaoCrud from '../components/opcao/opcaoCrud';
+import UserCrud from '../components/users/UserCrud';
 import Login from '../components/login/Login';
 //import { AuthContext } from '../components/context/auth';
 import { AuthProvider, AuthContext } from '../components/context/auth';
@@ -13,7 +13,11 @@ import { AuthProvider, AuthContext } from '../components/context/auth';
 const RoutesApp = () =>{
 
     const Private=({children})=>{
-        const{authenticated} = useContext(AuthContext);
+        const{authenticated, loading} = useContext(AuthContext);
+        if(loading){
+            return <div className='loading'>Carregando...</div>
+        }
+        
         if(!authenticated){
             return < Navigate to="/login"/>
         }
@@ -31,7 +35,7 @@ const RoutesApp = () =>{
                 <Route exact path="/login" element={<Login/>} />
                 <Route path="/produtos" element={<ProdutoCrud/>} />
                 <Route path="/movimentos" element={<MovimentoCrud/>} />
-                <Route path="/opcoes" element={<OpcaoCrud/>} />
+                <Route path="/users" element={<UserCrud/>} />
                 <Route path="*" element={<Home/>} />
             </Routes>
         </AuthProvider>

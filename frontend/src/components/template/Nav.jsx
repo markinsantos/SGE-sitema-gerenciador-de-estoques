@@ -14,8 +14,8 @@ export default props =>
             <a href="/movimentos">
                 <i className='fa fa-calendar'></i> Movimentos
             </a>
-            <a href="/opcoes">
-                <i className='fa fa-bars'></i> Opções
+            <a href="/users">
+                <i className='fa fa-users'></i> Usuarios
             </a>
         </nav>
     </aside>

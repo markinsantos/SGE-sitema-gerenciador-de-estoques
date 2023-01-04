@@ -1,5 +1,8 @@
 import './Header.css'
-import React from 'react'
+import React, {useContext}from 'react'
+import ButtonLogout from './ButtonLogout'
+//import { AuthContext } from '../context/auth'
+
 
 export default props =>
     <header className="header d-none d-sm-flex" flex-column>
@@ -7,5 +10,7 @@ export default props =>
             <i className={`fa fa-${props.icon}`}></i> {props.title}
             <p className='lead text-muted'>{props.subtitle}</p>
         </h1>
-        
+        <ButtonLogout></ButtonLogout>
     </header>
+
+   // export default Header;

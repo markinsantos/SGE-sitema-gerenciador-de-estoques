@@ -3,17 +3,17 @@ import axios from 'axios'
 import Main from '../template/Main'
 
 const headerProps = {
-    icon: 'sliders',
-    title: 'Produtos',
-    subtitle: 'Cadastro de Produtos: Incluir Alterar e Excluir'
+    icon: 'users',
+    title: 'Usuarios',
+    subtitle: 'Controle de Usuarios do Sistema'
 }
-const baseUrl = 'http://localhost:3001/produtos'
+const baseUrl = 'http://localhost:3001/usuarios'
 const initialState = {
-    produto: {name:'', quantidade:0},
+    usuario: {name:'', email:0},
     list:[]
 }
 
-export default class ProdutoCrud extends Component{
+export default class UserCrud extends Component{
     state = {...initialState}
 
     componentWillMount() {
@@ -23,31 +23,31 @@ export default class ProdutoCrud extends Component{
     }
 
     clear(){
-        this.setState({produto: initialState.produto})
+        this.setState({usuario: initialState.usuario})
     }
 
     save(){
-        const produto = this.state.produto
-        const method = produto.id ? 'put':'post'
-        const url = produto.id ? `${baseUrl}/${produto.id}` : baseUrl
-        axios[method](url,produto)
+        const usuario = this.state.usuario
+        const method = usuario.id ? 'put':'post'
+        const url = usuario.id ? `${baseUrl}/${usuario.id}` : baseUrl
+        axios[method](url,usuario)
         .then(resp => {
             const list = this.getUpdatedList(resp.data)
-            this.setState({produto: initialState.produto, list})
+            this.setState({usuario: initialState.usuario, list})
             this.clear()
         })
     }
 
-    getUpdatedList(produto, add=true){
-        const list = this.state.list.filter(u => u.id !== produto.id)
-        if(add) list.unshift(produto)
+    getUpdatedList(usuario, add=true){
+        const list = this.state.list.filter(u => u.id !== usuario.id)
+        if(add) list.unshift(usuario)
         return list
     }
 
     updateField(event) {
-        const produto = {...this.state.produto}
-        produto[event.target.name] = event.target.value
-        this.setState({produto})
+        const usuario = {...this.state.usuario}
+        usuario[event.target.name] = event.target.value
+        this.setState({usuario})
     }
 
     renderForm(){
@@ -58,19 +58,19 @@ export default class ProdutoCrud extends Component{
                         <div className="form-group">
                             <label>Nome do Produto</label>
                             <input type="text" className='form-control'
-                            name='name' value={this.state.produto.name}
+                            name='name' value={this.state.usuario.name}
                             onChange={e => this.updateField(e)}
-                            placeholder="Digite o nome do produto..."/>
+                            placeholder="Digite o nome do usuario..."/>
                         </div>
                     </div>
 
                     <div className="col-12 col-md-6">
                         <div className="form-group">
-                            <label>Quantidade</label>
-                            <input type="number" className='form-control'
-                            name='quantidade' value={this.state.produto.quantidade}
+                            <label>Email</label>
+                            <input type="text" className='form-control'
+                            name='email' value={this.state.usuario.email}
                             onChange={e => this.updateField(e)}
-                            placeholder="Digite a Quantidade..."/>
+                            placeholder="Digite a email..."/>
                         </div>
                     </div>
 
@@ -94,13 +94,13 @@ export default class ProdutoCrud extends Component{
         )
     }
 
-    load(produto) {
-        this.setState({ produto})
+    load(usuario) {
+        this.setState({ usuario})
     }
 
-    remove(produto) {
-        axios.delete(`${baseUrl}/${produto.id}`).then(resp => {
-            const list = this.getUpdatedList(produto, false)
+    remove(usuario) {
+        axios.delete(`${baseUrl}/${usuario.id}`).then(resp => {
+            const list = this.getUpdatedList(usuario, false)
             this.setState({ list })
         })
     }
@@ -124,19 +124,19 @@ export default class ProdutoCrud extends Component{
     }
 
     renderRows() {
-        return this.state.list.map(produto => {
+        return this.state.list.map(usuario => {
             return (
-                <tr key={produto.id}>
-                    <td>{produto.id}</td>
-                    <td>{produto.name}</td>
-                    <td>{produto.quantidade}</td>
+                <tr key={usuario.id}>
+                    <td>{usuario.id}</td>
+                    <td>{usuario.name}</td>
+                    <td>{usuario.email}</td>
                     <td>
                         <button className="btn btn-warning"
-                            onClick={() => this.load(produto)}>
+                            onClick={() => this.load(usuario)}>
                             <i className="fa fa-pencil"></i>
                         </button>
                         <button className="btn btn-danger ml-2"
-                            onClick={() => this.remove(produto)}>
+                            onClick={() => this.remove(usuario)}>
                             <i className="fa fa-trash"></i>
                         </button>
                     </td>
