@@ -6,31 +6,19 @@
       "quantidade": 10
     },
     {
-      "name": "teste",
-      "quantidade": "36",
-      "email": "100",
-      "id": 2
-    },
-    {
       "name": "marcos",
       "quantidade": "100",
       "id": 3
     },
     {
       "name": "teste",
-      "quantidade": "36",
-      "email": "100",
-      "id": 6
+      "quantidade": "8",
+      "id": 4
     },
     {
-      "name": "marcos",
-      "quantidade": "100",
-      "id": 7
-    },
-    {
-      "name": "testando",
-      "quantidade": "7",
-      "id": 8
+      "name": "produto l",
+      "quantidade": "30",
+      "id": 5
     }
   ],
   "Movimentos": [

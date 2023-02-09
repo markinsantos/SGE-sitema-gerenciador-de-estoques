@@ -1,0 +1,36 @@
+header.header {
+    background-color: #FFF;
+    padding: 0px 15px;
+    overflow: hidden;
+    white-space: nowrap;
+    box-shadow: var(--shadow);
+} 
+
+header.header h1 {
+    font-size: 1.8em;
+}
+
+.direita {
+
+    display: flex;
+    flex-direction: column-reverse;
+    width: 10%;
+    float: right;
+    text-align:end;
+
+        
+}
+
+.esquerda {
+
+    display: inline;
+    width: 90%;
+    float: right;
+    
+}
+
+img {
+    padding: 0px 15px;
+    width: 70%;
+    
+}
